@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+'use strict';
+
+let program = require('commander');
+var action = null;
+
+program
+  .version('0.0.1')
+  .usage('action [options]')
+  .on('--help', () => {
+    console.log('  Actions:');
+    console.log('    work_status            print current work status');
+  })
+  .arguments('<cmd>')
+  .action((cmd) => {
+    action = cmd
+  })
+  .option('-u, --user [type]', 'user name')
+  .option('-p, --password [type]', 'password')
+  .parse(process.argv);
+
+if (!action || !program.user || !program.password) {
+   program.outputHelp();
+   return;
+}
+
+let HackSpirit = require('../lib/hack-spirit');
+switch (action) {
+  case 'work_status':
+    HackSpirit.printWorkStatus(program.user, program.password);
+    break;
+  default:
+    program.outputHelp();
+    break;
+}
