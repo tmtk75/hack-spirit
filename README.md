@@ -26,6 +26,8 @@ $ npm install --global https://github.com/aHirokiKumamoto/hack-spirit
     -V, --version          output the version number
     -u, --user [type]      user name
     -p, --password [type]  password
+    -v, --verbose          print log
+    -b, --browser          show browser
 
   Actions:
     work_status            print current work status
