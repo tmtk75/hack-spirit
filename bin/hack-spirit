@@ -20,6 +20,8 @@ program
   })
   .option('-u, --user [type]', 'user name')
   .option('-p, --password [type]', 'password')
+  .option('-v, --verbose')
+  .option('-b, --browser')
   .parse(process.argv);
 
 if (!action || !program.user || !program.password) {
@@ -28,15 +30,16 @@ if (!action || !program.user || !program.password) {
 }
 
 let HackSpirit = require('../lib/hack-spirit');
+let hackSpirit = new HackSpirit(program.browser, program.verbose);
 switch (action) {
   case 'work_status':
-    HackSpirit.printWorkStatus(program.user, program.password);
+    hackSpirit.printWorkStatus(program.user, program.password);
     break;
   case 'start_work':
-    HackSpirit.startWork(program.user, program.password);
+    hackSpirit.startWork(program.user, program.password);
     break;
   case 'finish_work':
-    HackSpirit.finishWork(program.user, program.password);
+    hackSpirit.finishWork(program.user, program.password);
     break;
   default:
     program.outputHelp();
