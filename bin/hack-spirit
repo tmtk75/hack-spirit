@@ -20,8 +20,8 @@ program
   })
   .option('-u, --user [type]', 'user name')
   .option('-p, --password [type]', 'password')
-  .option('-v, --verbose')
-  .option('-b, --browser')
+  .option('-v, --verbose', 'print log')
+  .option('-b, --browser', 'show browser')
   .parse(process.argv);
 
 if (!action || !program.user || !program.password) {
