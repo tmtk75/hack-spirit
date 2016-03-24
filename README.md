@@ -31,6 +31,8 @@ $ npm install --global https://github.com/aHirokiKumamoto/hack-spirit
 
   Actions:
     work_status            print current work status
+    start_work             start work
+    finish_work            finish work
 ```
 
 ### Examples
