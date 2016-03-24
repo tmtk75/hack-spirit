@@ -11,6 +11,8 @@ program
   .on('--help', () => {
     console.log('  Actions:');
     console.log('    work_status            print current work status');
+    console.log('    start_work             start work');
+    console.log('    finish_work            finish work');
   })
   .arguments('<cmd>')
   .action((cmd) => {
@@ -29,6 +31,12 @@ let HackSpirit = require('../lib/hack-spirit');
 switch (action) {
   case 'work_status':
     HackSpirit.printWorkStatus(program.user, program.password);
+    break;
+  case 'start_work':
+    HackSpirit.startWork(program.user, program.password);
+    break;
+  case 'finish_work':
+    HackSpirit.finishWork(program.user, program.password);
     break;
   default:
     program.outputHelp();
