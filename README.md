@@ -6,7 +6,8 @@ It makes TeamSpirit hackable.
 Currently, it provides these functionalities:
 
 - Get current work status ()
-
+- Start work
+- Finish work
 
 ## Installation
 
