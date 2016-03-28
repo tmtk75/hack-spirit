@@ -45,10 +45,10 @@ $ hack-spirit work_status -u user_name -p password
 ### How it works
 
 hack-spirit is highly depended on
-[nightmare]() that uses [electron]() as headless browser.
+[nightmare][] that uses [electron][] as headless browser.
 
 So, you can see how the electron works with `--browser` options.
 
 
-[nightmare]:https://github.com/segmentio/nightmare
-[electron]: http://electron.atom.io/
+[nightmare]: https://github.com/segmentio/nightmare)
+[electron]:  http://electron.atom.io/
