@@ -43,5 +43,6 @@ switch (action) {
     break;
   default:
     program.outputHelp();
+    hackSpirit.dispose();
     break;
 }
