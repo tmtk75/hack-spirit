@@ -16,6 +16,7 @@
   "dependencies": {
     "co": "^4.6.0",
     "commander": "^2.9.0",
+    "date-utils": "^1.2.19",
     "nightmare": "^2.2.0"
   }
 }
