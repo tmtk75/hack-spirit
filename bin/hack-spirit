@@ -6,43 +6,36 @@ let program = require('commander');
 var action = null;
 
 program
-  .version('0.0.1')
-  .usage('action [options]')
-  .on('--help', () => {
-    console.log('  Actions:');
-    console.log('    work_status            print current work status');
-    console.log('    start_work             start work');
-    console.log('    finish_work            finish work');
-  })
-  .arguments('<cmd>')
-  .action((cmd) => {
-    action = cmd
-  })
-  .option('-u, --user [type]', 'user name')
-  .option('-p, --password [type]', 'password')
+  .version('0.0.3')
+  .option('-u, --user [String]', 'user name')
+  .option('-p, --password [String]', 'password')
   .option('-v, --verbose', 'print log')
-  .option('-b, --browser', 'show browser')
-  .parse(process.argv);
+  .option('-b, --browser', 'show browser');
 
-if (!action || !program.user || !program.password) {
-   program.outputHelp();
-   return;
-}
-
-let HackSpirit = require('../lib/hack-spirit');
-let hackSpirit = new HackSpirit(program.browser, program.verbose);
-switch (action) {
-  case 'work_status':
+program
+  .command('work_status')
+  .description('print current work status')
+  .action(() => {
+    let HackSpirit = require('../lib/hack-spirit');
+    let hackSpirit = new HackSpirit(program.browser, program.verbose);
     hackSpirit.printWorkStatus(program.user, program.password);
-    break;
-  case 'start_work':
-    hackSpirit.startWork(program.user, program.password);
-    break;
-  case 'finish_work':
-    hackSpirit.finishWork(program.user, program.password);
-    break;
-  default:
-    program.outputHelp();
-    hackSpirit.dispose();
-    break;
-}
+  });
+program
+  .command('start_work')
+  .description('start work')
+  .action(() => {
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.startWork(program.user, program.password);
+  });
+
+program
+  .command('finish_work')
+  .description('finish_work')
+  .action(() => {
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.finishWork(program.user, program.password);
+  });
+
+program.parse(process.argv);
