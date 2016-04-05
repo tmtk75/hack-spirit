@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Make TeamSpirit hackable",
   "main": "lib/hack-spirit.js",
-  "bin":  "bin/hack-spirit",
+  "bin": "bin/hack-spirit",
   "repository": "https://github.com/aHirokiKumamoto/hack-spirit.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
     "co": "^4.6.0",
     "commander": "^2.9.0",
     "date-utils": "^1.2.19",
+    "moment": "^2.12.0",
     "nightmare": "^2.2.0"
   }
 }
