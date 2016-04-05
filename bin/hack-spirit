@@ -40,15 +40,15 @@ program
 
 
 let dateFormat = 'YYYYMMDDHHmm';
-
+let defaultNote = 'Worked for great project.'
 program
   .command('overtime')
   .description('Ask for overtime')
-  .option(`-d, --datetime [${dateFormat}]`, 'End datetime of work')
-  .option('-n, --note [String]', 'Note of an application')
+  .option(`-d, --datetime [${dateFormat}]`, 'What time you want to finish work (default: current time)')
+  .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
   .action((opts) => {
       let date = opts.datetime ? moment(opts.datetime, dateFormat).toDate() : new Date();
-      let note = opts.note ? opts.note : 'Worked for great project.';
+      let note = opts.note ? opts.note : dafaultNote;
       let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.askForOvertime(program.user, program.password, date, note);
