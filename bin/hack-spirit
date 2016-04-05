@@ -43,7 +43,7 @@ let dateFormat = 'YYYYMMDDHHmm';
 
 program
   .command('overtime')
-  .description('Ask overtime work')
+  .description('Ask for overtime')
   .option(`-d, --datetime [${dateFormat}]`, 'End datetime of work')
   .option('-n, --note [String]', 'Note of an application')
   .action((opts) => {
@@ -51,7 +51,7 @@ program
       let note = opts.note ? opts.note : 'Worked for great project.';
       let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
-      hackSpirit.overtimeApplication(program.user, program.password, date, note);
+      hackSpirit.askForOvertime(program.user, program.password, date, note);
   });
 
 program.parse(process.argv);
