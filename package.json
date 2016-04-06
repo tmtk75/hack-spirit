@@ -18,8 +18,10 @@
     "commander": "^2.9.0",
     "date-utils": "^1.2.19",
     "keychain": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "moment": "^2.12.0",
     "nightmare": "^2.2.0",
+    "os-homedir": "^1.0.1",
     "prompt": "^1.0.0"
   }
 }
