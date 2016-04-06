@@ -2,10 +2,11 @@
 
 'use strict';
 
-let program = require('commander');
-let moment  = require('moment');
-let prompt  = require('prompt');
-let colors  = require('colors/safe');
+let program    = require('commander');
+let moment     = require('moment');
+let prompt     = require('prompt');
+let colors     = require('colors/safe');
+let HackSpirit = require('../lib/hack-spirit');
 
 prompt.message   = '';
 prompt.delimiter = '';
@@ -23,7 +24,6 @@ program
   .command('login')
   .description('login with your team sprint credentials')
   .action(() => {
-    let HackSpirit = require('../lib/hack-spirit');
     if (program.user && program.password) {
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.login(program.user, program.password)
@@ -50,7 +50,6 @@ program
   .command('work_status')
   .description('print current work status')
   .action(() => {
-    let HackSpirit = require('../lib/hack-spirit');
     let hackSpirit = new HackSpirit(program.browser, program.verbose);
     hackSpirit.printWorkStatus(program.user, program.password);
   });
@@ -58,7 +57,6 @@ program
   .command('start_work')
   .description('start work')
   .action(() => {
-      let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.startWork(program.user, program.password);
   });
@@ -67,7 +65,6 @@ program
   .command('finish_work')
   .description('finish_work')
   .action(() => {
-      let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.finishWork(program.user, program.password);
   });
@@ -84,6 +81,7 @@ program
       let date = opts.datetime ? moment(opts.datetime, dateFormat).toDate() : new Date();
       let note = opts.note ? opts.note : defaultNote;
       let HackSpirit = require('../lib/hack-spirit');
+
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.askForOvertime(program.user, program.password, date, note);
   });
