@@ -4,6 +4,13 @@
 
 let program = require('commander');
 let moment  = require('moment');
+let prompt  = require('prompt');
+let colors  = require('colors/safe');
+
+prompt.message   = '';
+prompt.delimiter = '';
+
+let w = colors.white;
 
 program
   .version('0.0.3')
@@ -12,6 +19,33 @@ program
   .option('-v, --verbose', 'print log')
   .option('-b, --browser', 'show browser');
 
+program
+  .command('login')
+  .description('login with your team sprint credentials')
+  .action(() => {
+    let HackSpirit = require('../lib/hack-spirit');
+    if (program.user && program.password) {
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.login(program.user, program.password)
+      return
+    }
+    let schema = {
+      properties: {
+              user: { required: true, description: w('User:') },
+          password: { required: true, description: w('Password'), hidden: true }
+      }
+    };
+    console.log('Enter your team spirit credentials.')
+    prompt.start()
+    prompt.get(schema, function (error, result) {
+      if (error) {
+         console.log('Sorry, something wrong: ' + error);
+         return;
+      }
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.login(result.user, result.password)
+    });
+  });
 program
   .command('work_status')
   .description('print current work status')
