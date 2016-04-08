@@ -48,7 +48,7 @@ program
   .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
   .action((opts) => {
       let date = opts.datetime ? moment(opts.datetime, dateFormat).toDate() : new Date();
-      let note = opts.note ? opts.note : dafaultNote;
+      let note = opts.note ? opts.note : defaultNote;
       let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.askForOvertime(program.user, program.password, date, note);
