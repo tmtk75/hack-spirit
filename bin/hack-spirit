@@ -40,7 +40,7 @@ program
 
 
 let dateFormat = 'YYYYMMDDHHmm';
-let defaultNote = 'Worked for great project.'
+let defaultNote = ''
 program
   .command('overtime')
   .description('Ask for overtime')
