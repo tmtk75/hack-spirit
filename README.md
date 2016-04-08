@@ -18,23 +18,35 @@ $ npm install --global https://github.com/aHirokiKumamoto/hack-spirit
 
 ## Usage
 
+I strongly recommend `login` command that stores your credentials.
+You don't need to put the options `--user` and `--password` when once you login.
+
 ```
-  Usage: hack-spirit action [options]
+  Usage: hack-spirit [options] [command]
+
+
+  Commands:
+
+    login                login with your team sprint credentials
+    work_status          print current work status
+    start_work           start work
+    finish_work          finish_work
+    overtime [options]   Ask for overtime
 
   Options:
 
-    -h, --help             output usage information
-    -V, --version          output the version number
-    -u, --user [type]      user name
-    -p, --password [type]  password
-    -v, --verbose          print log
-    -b, --browser          show browser
-
-  Actions:
-    work_status            print current work status
-    start_work             start work
-    finish_work            finish work
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -u, --user [String]      user name
+    -p, --password [String]  password
+    -v, --verbose            print log
+    -b, --browser            show browser
 ```
+
+
+Some command (such as `overtime` ) takes extra options.
+Please run `hack-spirit [command]  --help` and check out the output
+
 
 ### Examples
 
