@@ -86,6 +86,12 @@ program
       hackSpirit.askForOvertime(program.user, program.password, date, note);
   });
 
+program
+  .command('*', '', { noHelp: true})
+  .action(() => {
+    program.outputHelp();
+  });
+
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
