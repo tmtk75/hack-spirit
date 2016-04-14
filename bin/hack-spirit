@@ -89,7 +89,7 @@ program
 
 program
   .command('worktime')
-  .description('Record work time')
+  .description('Record worktime')
   .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
   .action((opts) => {
       let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();

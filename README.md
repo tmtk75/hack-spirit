@@ -8,6 +8,8 @@ Currently, it provides these functionalities:
 - Get current work status ()
 - Start work
 - Finish work
+- Ask for overtime
+- Record worktime
 
 ## Installation
 
@@ -32,6 +34,7 @@ You don't need to put the options `--user` and `--password` when once you login.
     start_work           start work
     finish_work          finish_work
     overtime [options]   Ask for overtime
+    worktime [options]   Record worktime
 
   Options:
 
