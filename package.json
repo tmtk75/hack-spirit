@@ -6,7 +6,7 @@
   "bin": "bin/hack-spirit",
   "repository": "https://github.com/aHirokiKumamoto/hack-spirit.git",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --harmony"
   },
   "engines": {
     "node": ">=4.0.0"
