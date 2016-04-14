@@ -1,5 +1,7 @@
 # hack-spirit
 
+<img height="260" src="logo.png">
+
 hack-spirit is a client library and cui for TeamSpirit.
 It makes TeamSpirit hackable.
 
