@@ -78,6 +78,14 @@ describe('Project', () => {
     it('should return string of duration', () => {
       assert.equal(relativeProject.toDurationString(), '1:00');
       assert.equal(absoluteProject.toDurationString(), '1:00');
+
+      let project = new Project({
+        name: 'project3',
+        totalDuration: moment.duration(10, 'h'),
+        durationStr: '0:50'
+      });
+
+      assert.equal(project.toDurationString(), '0:50');
     });
   });
 
