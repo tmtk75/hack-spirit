@@ -2,12 +2,12 @@
 
 <img height="260" src="logo.png">
 
-hack-spirit is a client library and cui for TeamSpirit.
+hack-spirit is a client library and a cui for TeamSpirit.
 It makes TeamSpirit hackable.
 
 Currently, it provides these functionalities:
 
-- Get current work status ()
+- Get current work status
 - Start work
 - Finish work
 - Ask for overtime
