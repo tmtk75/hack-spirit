@@ -6,7 +6,7 @@
   "bin": "bin/hack-spirit",
   "repository": "https://github.com/aHirokiKumamoto/hack-spirit.git",
   "scripts": {
-    "test": "mocha --harmony"
+    "test": "node_modules/mocha/bin/mocha --harmony"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -24,5 +24,8 @@
     "nightmare": "^2.2.0",
     "os-homedir": "^1.0.1",
     "prompt": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
