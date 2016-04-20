@@ -1,5 +1,7 @@
 # hack-spirit
 
+[![Build Status](https://travis-ci.org/aHirokiKumamoto/hack-spirit.svg?branch=travis)](https://travis-ci.org/aHirokiKumamoto/hack-spirit)
+
 <img height="260" src="logo.png">
 
 hack-spirit is a client library and a cui for TeamSpirit.
