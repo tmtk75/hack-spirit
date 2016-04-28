@@ -112,6 +112,17 @@ program
       hackSpirit.recordBreakTime(program.user, program.password, date, period);
   });
 
+program
+  .command('break_times')
+  .description('Manage a break times')
+  .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
+  .action((opts) => {
+      let date = opts.datetime ? moment(opts.datetime, datetimeFormat).toDate() : new Date();
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.breakTimes(program.user, program.password, date);
+  });
+
 
 program
   .command('*', '', { noHelp: true})
