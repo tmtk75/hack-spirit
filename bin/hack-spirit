@@ -113,6 +113,20 @@ program
   });
 
 program
+  .command('breaked')
+  .description('Record a break time until the time')
+  .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
+  .option(`-p, --period [${timeFormat}]`, 'How long you want to take a break.')
+  .action((opts) => {
+      let date = opts.datetime ? moment(opts.datetime, datetimeFormat).toDate() : new Date();
+      let period = opts.period ? moment.duration(opts.period) : null;
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.recordBreakedTime(program.user, program.password, date, period);
+  });
+
+
+program
   .command('break_times')
   .description('Manage a break times')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
