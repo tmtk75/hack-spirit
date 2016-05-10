@@ -12,8 +12,10 @@ Currently, it provides these functionalities:
 - Get current work status
 - Start work
 - Finish work
-- Ask for overtime
+- Report your overtime work
+- Report your delayed arrival
 - Record worktime
+- Have a break
 
 ## Installation
 
@@ -33,12 +35,16 @@ You don't need to put the options `--user` and `--password` when once you login.
 
   Commands:
 
-    login                login with your team sprint credentials
-    work_status          print current work status
-    start_work           start work
-    finish_work          finish_work
-    overtime [options]   Ask for overtime
-    worktime [options]   Record worktime
+    login                   login with your team sprint credentials
+    work_status             print current work status
+    start_work              start work
+    finish_work             finish_work
+    overtime [options]      Report your overtime work
+    delayed [options]       Report your delayed arrival
+    worktime [options]      Record worktime
+    break [options]         Record a break time
+    breaked [options]       Record a break time until the time
+    break_times [options]   Manage a break times
 
   Options:
 
