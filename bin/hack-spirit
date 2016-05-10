@@ -76,7 +76,7 @@ let timeFormat     = 'HHmm';
 let defaultNote    = ''
 program
   .command('overtime')
-  .description('Ask for overtime')
+  .description('Report your overtime work')
   .option(`-d, --datetime [${datetimeFormat}]`, 'What time you want to finish work (default: current time)')
   .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
   .action((opts) => {
@@ -85,12 +85,12 @@ program
       let HackSpirit = require('../lib/hack-spirit');
 
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
-      hackSpirit.askForOvertime(program.user, program.password, date, note);
+      hackSpirit.reportOvertimeWork(program.user, program.password, date, note);
   });
 
 program
   .command('delayed')
-  .description('Ask for being delayed')
+  .description('Report your delayed arrival')
   .option(`-d, --date [${dateFormat}]`, 'What day you ware delayed.(default: today)')
   .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
   .option('-p, --personal', 'The reason is personal')
@@ -100,7 +100,7 @@ program
       let HackSpirit = require('../lib/hack-spirit');
 
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
-      hackSpirit.askForBeingDelayed(program.user, program.password, date, note, program.personal);
+      hackSpirit.reportDelayedArrival(program.user, program.password, date, note, program.personal);
   });
 
 program
