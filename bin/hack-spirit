@@ -89,6 +89,21 @@ program
   });
 
 program
+  .command('delayed')
+  .description('Ask for being delayed')
+  .option(`-d, --date [${dateFormat}]`, 'What day you ware delayed.(default: today)')
+  .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
+  .option('-p, --personal', 'The reason is personal')
+  .action((opts) => {
+      let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
+      let note = opts.note ? opts.note : defaultNote;
+      let HackSpirit = require('../lib/hack-spirit');
+
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.askForBeingDelayed(program.user, program.password, date, note, program.personal);
+  });
+
+program
   .command('worktime')
   .description('Record worktime')
   .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
