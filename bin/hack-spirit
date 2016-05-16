@@ -95,12 +95,13 @@ program
   .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
   .option('-p, --personal', 'The reason is personal')
   .action((opts) => {
-      let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
-      let note = opts.note ? opts.note : defaultNote;
+      let date       = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
+      let note       = opts.note ? opts.note : defaultNote;
+      let isPersonal = opts.personal ? true : false;
       let HackSpirit = require('../lib/hack-spirit');
 
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
-      hackSpirit.reportDelayedArrival(program.user, program.password, date, note, program.personal);
+      hackSpirit.reportDelayedArrival(program.user, program.password, date, note, isPersonal);
   });
 
 program
