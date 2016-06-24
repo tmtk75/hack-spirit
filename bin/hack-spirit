@@ -153,6 +153,27 @@ program
       hackSpirit.breakTimes(program.user, program.password, date);
   });
 
+program
+  .command('weekly')
+  .description('Generate weekly report')
+  .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
+  .action((opts) => {
+      let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.weeklyReport(program.user, program.password, date);
+  });
+
+program
+  .command('monthly')
+  .description('Generate weekly report')
+  .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
+  .action((opts) => {
+      let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.monthlyReport(program.user, program.password, date);
+  });
 
 program
   .command('*', '', { noHelp: true})
