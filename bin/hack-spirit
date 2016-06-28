@@ -155,7 +155,7 @@ program
 
 program
   .command('weekly')
-  .description('Generate weekly report')
+  .description('Generate weekly worktime report')
   .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
   .action((opts) => {
       let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
@@ -166,7 +166,7 @@ program
 
 program
   .command('monthly')
-  .description('Generate weekly report')
+  .description('Generate weekly worktime report')
   .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
   .action((opts) => {
       let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
@@ -174,6 +174,20 @@ program
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
       hackSpirit.monthlyReport(program.user, program.password, date);
   });
+
+program
+  .command('time_report')
+  .description('Generate worktime report with a specified period')
+  .option(`-f, --from [${dateFormat}]`, 'From date')
+  .option(`-t, --to [${dateFormat}]`, 'To date')
+  .action((opts) => {
+      let fromDate = opts.from ? moment(opts.from, dateFormat).toDate() : new Date();
+      let toDate   = opts.to   ? moment(opts.to  , dateFormat).toDate() : new Date();
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.timeReport(program.user, program.password, fromDate, toDate);
+  });
+
 
 program
   .command('*', '', { noHelp: true})
