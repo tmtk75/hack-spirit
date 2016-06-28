@@ -16,6 +16,7 @@ Currently, it provides these functionalities:
 - Report your delayed arrival
 - Record worktime
 - Have a break
+- Generate worktime report (weekly, monthly, specified period)
 
 ## Installation
 
@@ -45,6 +46,9 @@ You don't need to put the options `--user` and `--password` when once you login.
     break [options]         Record a break time
     breaked [options]       Record a break time until the time
     break_times [options]   Manage a break times
+    weekly [options]        Generate weekly worktime report
+    monthly [options]       Generate weekly worktime report
+    time_report [options]   Generate worktime report with a specified period
 
   Options:
 
