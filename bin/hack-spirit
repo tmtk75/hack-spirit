@@ -116,8 +116,8 @@ program
   });
 
 program
-  .command('break')
-  .description('Record a break time')
+  .command('chill_out')
+  .description('Chill out')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
   .option(`-p, --period [${timeFormat}]`, 'How long you want to take a break.')
   .action((opts) => {
@@ -129,8 +129,8 @@ program
   });
 
 program
-  .command('breaked')
-  .description('Record a break time until the time')
+  .command('chilled_out')
+  .description('Chilled out until the time')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
   .option(`-p, --period [${timeFormat}]`, 'How long you want to take a break.')
   .action((opts) => {
@@ -143,8 +143,8 @@ program
 
 
 program
-  .command('break_times')
-  .description('Manage a break times')
+  .command('chills')
+  .description('Manage a chills')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
   .action((opts) => {
       let date = opts.datetime ? moment(opts.datetime, datetimeFormat).toDate() : new Date();
