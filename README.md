@@ -15,7 +15,7 @@ Currently, it provides these functionalities:
 - Report your overtime work
 - Report your delayed arrival
 - Record worktime
-- Have a break
+- Chill out
 - Generate worktime report (weekly, monthly, specified period)
 
 ## Installation
@@ -43,9 +43,9 @@ You don't need to put the options `--user` and `--password` when once you login.
     overtime [options]      Report your overtime work
     delayed [options]       Report your delayed arrival
     worktime [options]      Record worktime
-    break [options]         Record a break time
-    breaked [options]       Record a break time until the time
-    break_times [options]   Manage a break times
+    chill_out [options]     Chill out
+    chilled_out [options]   Chilled out until the time
+    chills [options]        Manage a chills
     weekly [options]        Generate weekly worktime report
     monthly [options]       Generate weekly worktime report
     time_report [options]   Generate worktime report with a specified period
