@@ -93,7 +93,7 @@ program
   .description('Report your delayed arrival')
   .option(`-d, --date [${dateFormat}]`, 'What day you ware delayed.(default: today)')
   .option('-n, --note [String]', `Note of the application (default: "${defaultNote}")`)
-  .option('-p, --personal', 'The reason is personal')
+  .option('-r, --personal', 'The reason is personal')
   .action((opts) => {
       let date       = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
       let note       = opts.note ? opts.note : defaultNote;
@@ -119,7 +119,7 @@ program
   .command('chill_out')
   .description('Chill out')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
-  .option(`-p, --period [${timeFormat}]`, 'How long you want to take a break.')
+  .option(`-r, --period [${timeFormat}]`, 'How long you want to take a break.')
   .action((opts) => {
       let date = opts.datetime ? moment(opts.datetime, datetimeFormat).toDate() : new Date();
       let period = opts.period ? moment.duration(opts.period) : null;
@@ -132,7 +132,7 @@ program
   .command('chilled_out')
   .description('Chilled out until the time')
   .option(`-d, --datetime [${datetimeFormat}]`, 'When you want to record your break time .(default: now)')
-  .option(`-p, --period [${timeFormat}]`, 'How long you want to take a break.')
+  .option(`-r, --period [${timeFormat}]`, 'How long you want to take a break.')
   .action((opts) => {
       let date = opts.datetime ? moment(opts.datetime, datetimeFormat).toDate() : new Date();
       let period = opts.period ? moment.duration(opts.period) : null;
