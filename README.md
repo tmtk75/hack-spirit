@@ -4,7 +4,7 @@
 
 <img height="260" src="logo.png">
 
-hack-spirit is a client library and a cui for TeamSpirit.
+hack-spirit is a client library and a cli for TeamSpirit.
 It makes TeamSpirit hackable.
 
 Currently, it provides these functionalities:
