@@ -6,7 +6,8 @@
   "bin": "bin/hack-spirit",
   "repository": "https://github.com/aHirokiKumamoto/hack-spirit.git",
   "scripts": {
-    "test": "mocha --harmony"
+    "test": "mocha --harmony",
+    "lint": "eslint lib/ bin/hack-spirit"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -28,6 +29,7 @@
     "prompt": "^1.0.0"
   },
   "devDependencies": {
+    "eslint": "^3.4.0",
     "mocha": "^2.4.5"
   }
 }
