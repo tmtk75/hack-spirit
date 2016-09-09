@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+/* eslint no-console: "off" */
 'use strict';
 
 let program    = require('commander');
@@ -31,7 +31,7 @@ program
     }
     let schema = {
       properties: {
-              user: { required: true, description: w('User:') },
+          user:     { required: true, description: w('User:') },
           password: { required: true, description: w('Password'), hidden: true }
       }
     };
