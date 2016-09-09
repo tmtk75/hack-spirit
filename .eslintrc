@@ -1,0 +1,16 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "parserOptions": {
+     "ecmaVersion": 6,
+     "sourceType": "module"
+  },
+  "rules": {
+    "no-multi-spaces": 0,
+    "key-spacing": ["error", { align: "value" }]
+  }
+}
