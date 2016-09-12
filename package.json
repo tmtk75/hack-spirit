@@ -1,6 +1,6 @@
 {
   "name": "hack-spirit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make TeamSpirit hackable",
   "main": "lib/hack-spirit.js",
   "bin": "bin/hack-spirit",

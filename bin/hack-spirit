@@ -14,7 +14,7 @@ prompt.delimiter = '';
 let w = colors.white;
 
 program
-  .version('0.1.0')
+  .version('0.1.1')
   .option('-u, --user [String]', 'user name')
   .option('-p, --password [String]', 'password')
   .option('-v, --verbose', 'print log')
