@@ -7,6 +7,7 @@ let moment     = require('moment');
 let prompt     = require('prompt');
 let colors     = require('colors/safe');
 let HackSpirit = require('../lib/hack-spirit');
+let fs         = require('fs');
 
 prompt.message   = '';
 prompt.delimiter = '';
@@ -73,7 +74,7 @@ program
 let datetimeFormat = 'YYYYMMDDHHmm';
 let dateFormat     = 'YYYYMMDD';
 let timeFormat     = 'HHmm';
-let defaultNote    = ''
+let defaultNote    = '';
 program
   .command('overtime')
   .description('Report your overtime work')
@@ -108,11 +109,20 @@ program
   .command('worktime')
   .description('Record worktime')
   .option(`-d, --date [${dateFormat}]`, 'What day you want to record your worktime .(default: today)')
+  .option(`-f, --file [String]`, 'Path to worktime json file. the format is ' +
+          '{ "project name": duration }. duration is relative time (percent string such as "100%") or absolute time string (such as "5:00") that is parsed by moment.js. Please refer to http://momentjs.com/docs/#/durations/'
+         )
   .action((opts) => {
       let date = opts.date ? moment(opts.date, dateFormat).toDate() : new Date();
       let HackSpirit = require('../lib/hack-spirit');
       let hackSpirit = new HackSpirit(program.browser, program.verbose);
-      hackSpirit.recordWorkTime(program.user, program.password, date);
+      let worktimesJsonFile  = opts.file;
+      let worktimes = null;
+      if (worktimesJsonFile) {
+        worktimes = JSON.parse(fs.readFileSync(worktimesJsonFile, 'utf8'));
+        console.log(worktimes);
+      }
+      hackSpirit.recordWorkTime(program.user, program.password, date, worktimes);
   });
 
 program
