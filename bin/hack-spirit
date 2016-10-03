@@ -120,7 +120,6 @@ program
       let worktimes = null;
       if (worktimesJsonFile) {
         worktimes = JSON.parse(fs.readFileSync(worktimesJsonFile, 'utf8'));
-        console.log(worktimes);
       }
       hackSpirit.recordWorkTime(program.user, program.password, date, worktimes);
   });
