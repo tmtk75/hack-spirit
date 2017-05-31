@@ -150,6 +150,20 @@ program
       hackSpirit.recordBreakedTime(program.user, program.password, date, period);
   });
 
+program
+  .command('set_worktime')
+  .description('Set work time')
+  .option(`-d, --date [${dateFormat}]`, 'When you want to set work time (default: today)')
+  .option(`-s, --start [${timeFormat}]`, 'start time (default: 1000)')
+  .option(`-e, --end [${timeFormat}]`, 'end time (default: 1900')
+  .action((opts) => {
+      let date = opts.date ? moment(opts.date, datetimeFormat).toDate() : new Date();
+      let start = opts.start ? moment(opts.start, 'HHmm') : moment('1000', 'HHmm');
+      let end = opts.end ? moment(opts.end, 'HHmm') : moment('1900', 'HHmm');
+      let HackSpirit = require('../lib/hack-spirit');
+      let hackSpirit = new HackSpirit(program.browser, program.verbose);
+      hackSpirit.setWorkTime(program.user, program.password, date, start, end);
+  });
 
 program
   .command('chills')
